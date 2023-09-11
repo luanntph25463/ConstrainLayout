@@ -328,7 +328,7 @@ fun AlignYourBodyElement(
                 )
                 .constrainAs(image) {
                     top.linkTo(parent.top)
-                    bottom.linkTo(textContent.top, margin = 24.dp)
+                    bottom.linkTo(textContent.top)
                     start.linkTo(parent.start)
                     end.linkTo(parent.end)
                 }
@@ -338,7 +338,7 @@ fun AlignYourBodyElement(
             maxLines = 1,
             overflow = TextOverflow.Ellipsis,
             modifier = Modifier
-                .paddingFromBaseline(top = 5.dp, bottom = 24.dp)
+                .paddingFromBaseline(top = 5.dp, bottom = 12.dp)
                 .constrainAs(textContent) {
                     top.linkTo(image.bottom, margin = 5.dp)
                     bottom.linkTo(parent.bottom)
@@ -398,20 +398,6 @@ fun list(modifier: Modifier = Modifier) {
             }
         }
 
-        // Update the visibility of AlignYourBodyRow and topBar when scrolling
-        LaunchedEffect(scrollState) {
-            scrollState.firstVisibleItemIndex
-            scrollState.firstVisibleItemScrollOffset
-            scrollState.isScrollInProgress
-            if (scrollState.firstVisibleItemIndex > 0) {
-                isAlignYourBodyRowVisible.value = false
-                isTopBarVisible.value = true
-            } else if (!scrollState.isScrollInProgress) {
-                isAlignYourBodyRowVisible.value = true
-                isTopBarVisible.value = true
-            }
-        }
-
         // Render the topBar
         AnimatedVisibility(
             visible = isTopBarVisible.value,
@@ -422,6 +408,19 @@ fun list(modifier: Modifier = Modifier) {
                 modifier = Modifier.align(Alignment.TopCenter)
             )
         }
+        // Update the visibility of AlignYourBodyRow and topBar when scrolling
+        LaunchedEffect(scrollState) {
+            scrollState.firstVisibleItemIndex
+            scrollState.isScrollInProgress
+            if (scrollState.firstVisibleItemIndex > 0) {
+                isAlignYourBodyRowVisible.value = false
+                isTopBarVisible.value = true
+            } else if (!scrollState.isScrollInProgress) {
+                isAlignYourBodyRowVisible.value = true
+                isTopBarVisible.value = true
+            }
+        }
+
     }
 }
 @Composable
@@ -452,15 +451,6 @@ fun TopBar(modifier : Modifier = Modifier) {
             }
         }
     )
-}
-@Composable
-fun PostList(modifier: Modifier = Modifier) {
-    LazyColumn(modifier = modifier) {
-        items(10) { post ->
-            PostItem()
-            Spacer(modifier.padding(bottom = 20.dp))
-        }
-    }
 }
 @Composable
 // tạo 1 thanh bottomNavigation
