@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">ConstrainLayout</string>
+    <string name="news_1">Nguyễn Thành Luân</string>
+    <string name="news_2">Lê Thị Vân Anh</string>
+    <string name="screen_title_home">Home</string>
+    <string name="screen_title_settings">Find</string>
+    <string name="find">Tìm Kiếm</string>
 </resources>
