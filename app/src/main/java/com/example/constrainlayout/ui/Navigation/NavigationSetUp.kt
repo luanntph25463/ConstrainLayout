@@ -7,6 +7,8 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import com.example.constrainlayout.ui.Screens.HomeScreen
 import com.example.constrainlayout.ui.Screens.FindScreens
+import com.example.constrainlayout.ui.Screens.MessengerScreen
+import com.example.constrainlayout.ui.Screens.ProfileScreens
 
 @Composable
 fun NavigationSetup(navController: NavHostController,modifier : Modifier = Modifier) {
@@ -16,6 +18,12 @@ fun NavigationSetup(navController: NavHostController,modifier : Modifier = Modif
         }
         composable(BottomNavItem.Find.route) {
             FindScreens()
+        }
+        composable(BottomNavItem.Profile.route) {
+            ProfileScreens()
+        }
+        composable(BottomNavItem.Messenger.route) {
+            MessengerScreen()
         }
     }
 }

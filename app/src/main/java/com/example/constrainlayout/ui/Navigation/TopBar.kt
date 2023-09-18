@@ -19,16 +19,15 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.constrainlayout.R
-@Preview
 @Composable
-fun TopBar(modifier: Modifier = Modifier) {
+fun TopBar(text: String ,modifier: Modifier = Modifier) {
     TopAppBar(
         modifier = Modifier.fillMaxWidth(),
         title = { // Tiêu đề của topBar
             Row(modifier = Modifier,
                 verticalAlignment = Alignment.CenterVertically) {
                 Text(
-                    text = "Instagram",
+                    text = text,
                     modifier = Modifier.padding()
                 )
                 IconButton(onClick = { /* Hành động 1 */ }) {

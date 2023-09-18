@@ -7,15 +7,15 @@ import androidx.compose.material.BottomNavigationItem
 import androidx.compose.material.Icon
 import androidx.compose.material.Text
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.AccountCircle
 import androidx.compose.material.icons.filled.Home
+import androidx.compose.material.icons.filled.MailOutline
 import androidx.compose.material.icons.filled.Search
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
-import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.NavController
 import androidx.navigation.compose.currentBackStackEntryAsState
 import com.example.constrainlayout.R
@@ -31,11 +31,20 @@ sealed class BottomNavItem(
         titleResId = R.string.screen_title_home,
         icon = Icons.Default.Home
     )
-
     object Find : BottomNavItem(
         route = Screen.Find.route,
         titleResId = R.string.screen_title_settings,
         icon = Icons.Default.Search
+    )
+    object Profile : BottomNavItem(
+        route = Screen.Profile.route,
+        titleResId = R.string.screen_title_profile,
+        icon = Icons.Default.AccountCircle
+    )
+    object Messenger : BottomNavItem(
+        route = Screen.Messenger.route,
+        titleResId = R.string.screen_title_messenger,
+        icon = Icons.Default.MailOutline
     )
 }
 @Composable
@@ -44,7 +53,9 @@ fun BottomNavigationBar(
 ) {
     val items = listOf(
         BottomNavItem.Home,
-        BottomNavItem.Find
+        BottomNavItem.Find,
+        BottomNavItem.Profile,
+        BottomNavItem.Messenger,
     )
 
     BottomNavigation(

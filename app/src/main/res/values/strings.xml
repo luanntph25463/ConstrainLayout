@@ -4,5 +4,7 @@
     <string name="news_2">Lê Thị Vân Anh</string>
     <string name="screen_title_home">Home</string>
     <string name="screen_title_settings">Find</string>
+    <string name="screen_title_profile">Profile</string>
+    <string name="screen_title_messenger">Messenger</string>
     <string name="find">Tìm Kiếm</string>
 </resources>
